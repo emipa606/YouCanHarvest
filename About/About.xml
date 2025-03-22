@@ -63,6 +63,8 @@ Old versions of the mod can be found on Dropbox.
 [*] Use [url=https://github.com/RimSort/RimSort/releases/latest]RimSort[/url] to sort your mods
 [/list] 
 
-[url=https://steamcommunity.com/sharedfiles/filedetails/changelog/][img]https://img.shields.io/github/v/release/emipa606/YouCanHarvest?label=latest%20version&amp;style=plastic&amp;color=9f1111&amp;labelColor=black[/img][/url] | tags: harvest,  notification</description>
-  <modVersion IgnoreIfNoMatchingField="True">1.5.0</modVersion>
+[url=https://steamcommunity.com/sharedfiles/filedetails/changelog/][img]https://img.shields.io/github/v/release/emipa606/YouCanHarvest?label=latest%20version&amp;style=plastic&amp;color=9f1111&amp;labelColor=black[/img][/url] | tags: harvest,  notification 
+
+[url=https://steamcommunity.com/sharedfiles/filedetails/changelog/3378783644][img]https://img.shields.io/github/v/release/emipa606/YouCanHarvest?label=latest%20version&amp;style=plastic&amp;color=9f1111&amp;labelColor=black[/img][/url] | tags: harvest,  notification</description>
+  <modVersion IgnoreIfNoMatchingField="True">1.5.1</modVersion>
 </ModMetaData>

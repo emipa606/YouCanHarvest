@@ -1,5 +1,8 @@
 # Changelog for YouCanHarvest
 
+1.5.1 - Settings should behave better on higher ui-scale
+
+
 1.5.0 - First publish
 Used DeepL to update translations for ChineseSimplified, French, German, Japanese
 

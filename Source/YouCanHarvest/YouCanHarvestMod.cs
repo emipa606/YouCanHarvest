@@ -94,8 +94,8 @@ public class YouCanHarvestMod : Mod
             var buttonRect = listing_Standard.GetRect(30f);
             DrawAddPlantDefButton(buttonRect);
 
-            var outRect = listing_Standard.GetRect(inRect.height - listing_Standard.CurHeight);
-            var width = outRect.width - 16f;
+            var outRect = listing_Standard.GetRect(inRect.height - (listing_Standard.CurHeight * 1.05f));
+            var width = outRect.width * 0.95f;
             var viewRect = new Rect(0f, 0f, width, CalcHeight());
             Widgets.BeginScrollView(outRect, ref scrollPosition, viewRect);
             var listing_ScrollView = new Listing_Standard();

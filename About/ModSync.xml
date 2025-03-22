@@ -2,7 +2,7 @@
 <ModSyncNinjaData>
   <ID>6d309188-1a0f-4c3e-a0ce-165f585691a0</ID>
   <ModName>You Can Harvest! (Continued)</ModName>
-  <Version>1.5.0</Version>
+  <Version>1.5.1</Version>
   <SaveBreaking>False</SaveBreaking>
   <Host name="Github">
     <Owner>emipa606</Owner>
@@ -12,7 +12,4 @@
     <Branch>master</Branch>
   </Host>
 </ModSyncNinjaData>
-
-
-
 
