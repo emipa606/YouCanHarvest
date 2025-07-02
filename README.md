@@ -49,6 +49,4 @@ Old versions of the mod can be found on Dropbox.
 
  
 
-[![Image](https://img.shields.io/github/v/release/emipa606/YouCanHarvest?label=latest%20version&style=plastic&color=9f1111&labelColor=black)](https://steamcommunity.com/sharedfiles/filedetails/changelog/) | tags: harvest,  notification 
-
 [![Image](https://img.shields.io/github/v/release/emipa606/YouCanHarvest?label=latest%20version&style=plastic&color=9f1111&labelColor=black)](https://steamcommunity.com/sharedfiles/filedetails/changelog/3378783644) | tags: harvest,  notification

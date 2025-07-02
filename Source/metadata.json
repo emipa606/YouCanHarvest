@@ -7,6 +7,11 @@
     "harvest",
     " notification"
   ],
-  "PreviewVersion": "1.5",
-  "LastXmlCleaning": "2025-03-22T20:31:47.78294+01:00"
+  "PreviewVersion": "1.6",
+  "LastXmlCleaning": "2025-07-02T21:15:57.3809131+02:00",
+  "Patches": false,
+  "Defs": false,
+  "Assemblies": true,
+  "LinesOfCode": 14485.0,
+  "LinesOfXML": 0
 }

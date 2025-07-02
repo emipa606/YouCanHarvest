@@ -17,7 +17,7 @@ public class YouCanHarvestSettings : ModSettings
     public AlertTargetPlant alertTargetPlant = AlertTargetPlant.All;
 
     private bool canResolve = true;
-    public bool ignoreMarkedPlants = true;
+    public bool IgnoreMarkedPlants = true;
     public List<PlantAlertSettingItem> settingItems = [];
 
     public List<PlantAlertSettingItem> SettingItems
@@ -31,7 +31,7 @@ public class YouCanHarvestSettings : ModSettings
 
     public bool IsAlertTarget(Thing t)
     {
-        if (ignoreMarkedPlants && t.Map.designationManager.HasMapDesignationOn(t))
+        if (IgnoreMarkedPlants && t.Map.designationManager.HasMapDesignationOn(t))
         {
             return false;
         }
@@ -53,7 +53,7 @@ public class YouCanHarvestSettings : ModSettings
     public override void ExposeData()
     {
         Scribe_Values.Look(ref alertTargetPlant, "alertTargetPlant");
-        Scribe_Values.Look(ref ignoreMarkedPlants, "ignoreMarkedPlants", true);
+        Scribe_Values.Look(ref IgnoreMarkedPlants, "ignoreMarkedPlants", true);
         Scribe_Collections.Look(ref settingItems, "settingItems", LookMode.Deep);
     }
 

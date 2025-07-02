@@ -10,8 +10,8 @@ namespace YouCanHarvest;
 public class YouCanHarvestMod : Mod
 {
     private static string currentVersion;
-    private static readonly Color alternateBackground = new Color(0.2f, 0.2f, 0.2f, 0.5f);
-    public readonly YouCanHarvestSettings settings;
+    private static readonly Color alternateBackground = new(0.2f, 0.2f, 0.2f, 0.5f);
+    private readonly YouCanHarvestSettings settings;
     private Vector2 scrollPosition;
 
     public YouCanHarvestMod(ModContentPack content) : base(content)
@@ -34,28 +34,28 @@ public class YouCanHarvestMod : Mod
 
     public override void DoSettingsWindowContents(Rect inRect)
     {
-        var listing_Standard = new Listing_Standard();
-        listing_Standard.Begin(inRect);
-        listing_Standard.ColumnWidth = inRect.width / 2 * 0.95f;
+        var listingStandard = new Listing_Standard();
+        listingStandard.Begin(inRect);
+        listingStandard.ColumnWidth = inRect.width / 2 * 0.95f;
 
-        listing_Standard.CheckboxLabeled("YouCanHarvest.IgnoreMarkedPlants".Translate(),
-            ref Settings.ignoreMarkedPlants);
+        listingStandard.CheckboxLabeled("YouCanHarvest.IgnoreMarkedPlants".Translate(),
+            ref Settings.IgnoreMarkedPlants);
 
         if (currentVersion != null)
         {
-            listing_Standard.Gap();
+            listingStandard.Gap();
             GUI.contentColor = Color.gray;
-            listing_Standard.Label("YouCanHarvest.CurrentModVersion".Translate(currentVersion));
+            listingStandard.Label("YouCanHarvest.CurrentModVersion".Translate(currentVersion));
             GUI.contentColor = Color.white;
         }
 
-        listing_Standard.Gap();
+        listingStandard.Gap();
 
         Text.Font = GameFont.Medium;
-        listing_Standard.Label("YouCanHarvest.AlertTargetPlant".Translate());
+        listingStandard.Label("YouCanHarvest.AlertTargetPlant".Translate());
         Text.Font = GameFont.Small;
 
-        var rectRadioButton = listing_Standard.GetRect(30f);
+        var rectRadioButton = listingStandard.GetRect(30f);
         var isSelected = settings.alertTargetPlant == YouCanHarvestSettings.AlertTargetPlant.All;
         if (Widgets.RadioButtonLabeled(rectRadioButton, "YouCanHarvest.AlertTargetPlantAll".Translate(),
                 isSelected))
@@ -63,7 +63,7 @@ public class YouCanHarvestMod : Mod
             settings.alertTargetPlant = YouCanHarvestSettings.AlertTargetPlant.All;
         }
 
-        rectRadioButton = listing_Standard.GetRect(30f);
+        rectRadioButton = listingStandard.GetRect(30f);
         isSelected = settings.alertTargetPlant == YouCanHarvestSettings.AlertTargetPlant.InGrowingArea;
         if (Widgets.RadioButtonLabeled(rectRadioButton,
                 "YouCanHarvest.AlertTargetPlantInGrowingArea".Translate(), isSelected))
@@ -71,7 +71,7 @@ public class YouCanHarvestMod : Mod
             settings.alertTargetPlant = YouCanHarvestSettings.AlertTargetPlant.InGrowingArea;
         }
 
-        rectRadioButton = listing_Standard.GetRect(30f);
+        rectRadioButton = listingStandard.GetRect(30f);
         isSelected = settings.alertTargetPlant == YouCanHarvestSettings.AlertTargetPlant.Custom;
         if (Widgets.RadioButtonLabeled(rectRadioButton, "YouCanHarvest.AlertTargetPlantCustom".Translate(),
                 isSelected))
@@ -79,36 +79,36 @@ public class YouCanHarvestMod : Mod
             settings.alertTargetPlant = YouCanHarvestSettings.AlertTargetPlant.Custom;
         }
 
-        if (listing_Standard.ButtonText("YouCanHarvest.Reset".Translate(), widthPct: 0.5f))
+        if (listingStandard.ButtonText("YouCanHarvest.Reset".Translate(), widthPct: 0.5f))
         {
             // Reset settings
             settings.alertTargetPlant = YouCanHarvestSettings.AlertTargetPlant.All;
-            settings.ignoreMarkedPlants = true;
+            settings.IgnoreMarkedPlants = true;
             settings.settingItems.Clear();
         }
 
         if (Settings.alertTargetPlant == YouCanHarvestSettings.AlertTargetPlant.Custom)
         {
-            listing_Standard.NewColumn();
-            listing_Standard.Label("YouCanHarvest.TitlePlantDefs".Translate());
-            var buttonRect = listing_Standard.GetRect(30f);
-            DrawAddPlantDefButton(buttonRect);
+            listingStandard.NewColumn();
+            listingStandard.Label("YouCanHarvest.TitlePlantDefs".Translate());
+            var buttonRect = listingStandard.GetRect(30f);
+            drawAddPlantDefButton(buttonRect);
 
-            var outRect = listing_Standard.GetRect(inRect.height - (listing_Standard.CurHeight * 1.05f));
+            var outRect = listingStandard.GetRect(inRect.height - (listingStandard.CurHeight * 1.05f));
             var width = outRect.width * 0.95f;
-            var viewRect = new Rect(0f, 0f, width, CalcHeight());
+            var viewRect = new Rect(0f, 0f, width, calcHeight());
             Widgets.BeginScrollView(outRect, ref scrollPosition, viewRect);
             var listing_ScrollView = new Listing_Standard();
             listing_ScrollView.Begin(viewRect);
-            DrawPlants(listing_ScrollView);
+            drawPlants(listing_ScrollView);
             listing_ScrollView.End();
             Widgets.EndScrollView();
         }
 
-        listing_Standard.End();
+        listingStandard.End();
     }
 
-    private float CalcHeight()
+    private static float calcHeight()
     {
         var height = 0f;
 
@@ -118,7 +118,7 @@ public class YouCanHarvestMod : Mod
         return height;
     }
 
-    private void DrawAddPlantDefButton(Rect rect)
+    private void drawAddPlantDefButton(Rect rect)
     {
         if (!Widgets.ButtonText(rect, "YouCanHarvest.AddPlantDef".Translate()))
         {
@@ -148,12 +148,12 @@ public class YouCanHarvestMod : Mod
         }
         else
         {
-            var list2 = new List<FloatMenuOption> { new FloatMenuOption("YouCanHarvest.NoPlantDef".Translate(), null) };
+            var list2 = new List<FloatMenuOption> { new("YouCanHarvest.NoPlantDef".Translate(), null) };
             Find.WindowStack.Add(new FloatMenu(list2));
         }
     }
 
-    private void DrawPlants(Listing_Standard list)
+    private void drawPlants(Listing_Standard list)
     {
         settings.ResolveItemDef();
 
@@ -162,7 +162,7 @@ public class YouCanHarvestMod : Mod
         for (var i = 0; i < Settings.SettingItems.Count; i++)
         {
             var rect = list.GetRect(24f);
-            if (DoPlantRow(rect, i))
+            if (doPlantRow(rect, i))
             {
                 deleteDefName = Settings.SettingItems[i].defName;
             }
@@ -176,7 +176,7 @@ public class YouCanHarvestMod : Mod
         }
     }
 
-    private bool DoPlantRow(Rect rect, int index)
+    private static bool doPlantRow(Rect rect, int index)
     {
         var returnValue = false;
 
