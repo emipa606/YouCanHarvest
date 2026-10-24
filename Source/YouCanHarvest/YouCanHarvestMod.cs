@@ -26,9 +26,9 @@ public class YouCanHarvestMod : Mod
     {
         get
         {
-            var settings = LoadedModManager.GetMod<YouCanHarvestMod>().settings;
-            settings.ResolveItemDef();
-            return settings;
+            var harvestSettings = LoadedModManager.GetMod<YouCanHarvestMod>().settings;
+            harvestSettings.ResolveItemDef();
+            return harvestSettings;
         }
     }
 

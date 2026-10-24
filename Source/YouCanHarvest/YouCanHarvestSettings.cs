@@ -14,10 +14,11 @@ public class YouCanHarvestSettings : ModSettings
         Custom
     }
 
+    public bool IgnoreMarkedPlants = true;
+
     public AlertTargetPlant alertTargetPlant = AlertTargetPlant.All;
 
     private bool canResolve = true;
-    public bool IgnoreMarkedPlants = true;
     public List<PlantAlertSettingItem> settingItems = [];
 
     public List<PlantAlertSettingItem> SettingItems

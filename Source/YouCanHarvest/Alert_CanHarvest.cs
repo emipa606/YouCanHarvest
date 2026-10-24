@@ -8,8 +8,6 @@ namespace YouCanHarvest;
 
 public class Alert_CanHarvest : Alert
 {
-    private readonly List<Thing> cacheHarvestablePlants = [];
-
     public Alert_CanHarvest()
     {
         defaultLabel = "YouCanHarvest.AlertCanHarvestLabel".Translate();
@@ -20,7 +18,7 @@ public class Alert_CanHarvest : Alert
     {
         get
         {
-            cacheHarvestablePlants.Clear();
+            field.Clear();
             var maps = Find.Maps;
             foreach (var map in maps)
             {
@@ -29,7 +27,7 @@ public class Alert_CanHarvest : Alert
                     continue;
                 }
 
-                cacheHarvestablePlants.AddRange(map.listerThings.ThingsInGroup(ThingRequestGroup.Plant)
+                field.AddRange(map.listerThings.ThingsInGroup(ThingRequestGroup.Plant)
                     .Where(Validator));
                 continue;
 
@@ -41,9 +39,9 @@ public class Alert_CanHarvest : Alert
                 }
             }
 
-            return cacheHarvestablePlants;
+            return field;
         }
-    }
+    } = [];
 
     public override TaggedString GetExplanation()
     {
